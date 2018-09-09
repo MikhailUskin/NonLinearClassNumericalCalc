@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     70715,       1354]
-NotebookOptionsPosition[     70086,       1337]
-NotebookOutlinePosition[     70465,       1353]
-CellTagsIndexPosition[     70422,       1350]
+NotebookDataLength[     71483,       1368]
+NotebookOptionsPosition[     70854,       1351]
+NotebookOutlinePosition[     71233,       1367]
+CellTagsIndexPosition[     71190,       1364]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -509,6 +509,23 @@ Cell[BoxData[
              RowBox[{"LastRow", "=", 
               RowBox[{"Last", "[", "SolTable", "]"}]}], ";", 
              "\[IndentingNewLine]", 
+             RowBox[{"bSolutionNumeric", "=", 
+              RowBox[{"NumericQ", "[", 
+               RowBox[{"Total", "[", "LastRow", "]"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"Not", "[", "bSolutionNumeric", "]"}], ",", 
+               RowBox[{
+                RowBox[{"Block", "[", 
+                 RowBox[{
+                  RowBox[{"{", "}"}], ",", 
+                  RowBox[{
+                   RowBox[{"Print", "[", 
+                    RowBox[{"\"\<Solution broken at Gr=\>\"", ",", "Gr"}], 
+                    "]"}], ";", 
+                   RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}]}], "]"}], 
+             ";", "\[IndentingNewLine]", 
              RowBox[{"Print", "[", "LastRow", "]"}], ";", 
              "\[IndentingNewLine]", 
              RowBox[{"AppendTo", "[", 
@@ -760,17 +777,13 @@ Cell[BoxData[
                   RowBox[{"ModelSecond", "[", "CurrentGr", "]"}], ",", 
                   RowBox[{"ModelThird", "[", "CurrentGr", "]"}]}], "}"}]}], 
                "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"bSolutionNumeric", "=", 
+              RowBox[{"NumericQ", "[", 
+               RowBox[{"Total", "[", "SolutionRow", "]"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
              RowBox[{"If", "[", 
               RowBox[{
-               RowBox[{
-                RowBox[{"NumericQ", "[", 
-                 RowBox[{"Total", "[", "SolutionRow", "]"}], "]"}], 
-                "\[Equal]", "False"}], ",", 
-               RowBox[{"(*", " ", 
-                RowBox[{
-                "break", " ", "evaluation", " ", "if", " ", "when", " ", 
-                 "solution", " ", "is", " ", "broken"}], " ", "*)"}], 
-               "\[IndentingNewLine]", 
+               RowBox[{"Not", "[", "bSolutionNumeric", "]"}], ",", 
                RowBox[{
                 RowBox[{"Block", "[", 
                  RowBox[{
@@ -780,8 +793,8 @@ Cell[BoxData[
                     RowBox[{
                     "\"\<Solution broken at Gr=\>\"", ",", "CurrentGr"}], 
                     "]"}], ";", 
-                   RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}]}], 
-              "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}]}], "]"}], 
+             ";", "\[IndentingNewLine]", 
              RowBox[{"Print", "[", "SolutionRow", "]"}], ";", 
              "\[IndentingNewLine]", 
              RowBox[{"AppendTo", "[", 
@@ -1068,8 +1081,10 @@ Cell[BoxData[
    3.745496332714695*^9}, {3.745496614575148*^9, 3.745496651114975*^9}, {
    3.745496683602751*^9, 3.7454967138647847`*^9}, {3.7454967681365423`*^9, 
    3.745496864501916*^9}, {3.74549705869172*^9, 3.7454971328173494`*^9}, 
-   3.7454972040798664`*^9, {3.7454973201036263`*^9, 
-   3.745497336440853*^9}},ExpressionUUID->"d710c8a3-2b7e-4ea7-9add-\
+   3.7454972040798664`*^9, {3.7454973201036263`*^9, 3.745497336440853*^9}, {
+   3.74550116213256*^9, 3.7455012173490977`*^9}, {3.7455012982395687`*^9, 
+   3.7455013261013875`*^9}, {3.745502235761671*^9, 
+   3.7455022368366203`*^9}},ExpressionUUID->"d710c8a3-2b7e-4ea7-9add-\
 82c169cfdf64"],
 
 Cell[BoxData[
@@ -1084,16 +1099,14 @@ Cell[BoxData[
 Cell[BoxData[{
  RowBox[{"GrRange", "=", 
   RowBox[{"{", 
-   RowBox[{
-    RowBox[{"-", "1100000"}], ",", 
-    RowBox[{"-", "1300000"}]}], "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{"6957360", ",", "6957400"}], "}"}]}], "\[IndentingNewLine]", 
  RowBox[{"SP", "=", 
   RowBox[{"{", 
-   RowBox[{"182.960824081497", ",", 
-    RowBox[{"-", "56601.7483169858"}], ",", "2443940.96738789"}], 
-   "}"}]}], "\[IndentingNewLine]", 
- RowBox[{"GrStep", "=", 
-  RowBox[{"-", "1000"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"-", "225.217061304613"}], ",", 
+    RowBox[{"-", "1875594.74187137"}], ",", 
+    RowBox[{"-", "46315158.0974006"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"GrStep", "=", "10"}], "\[IndentingNewLine]", 
  RowBox[{"CalcSolutionBranch", "[", 
   RowBox[{"GrRange", ",", "SP", ",", "GrStep"}], "]"}]}], "Input",
  CellChangeTimes->{{3.7278041284914722`*^9, 3.727804129085267*^9}, {
@@ -1331,8 +1344,9 @@ Cell[BoxData[{
    3.7414089298772993`*^9}, {3.7414134168915815`*^9, 3.741413481241694*^9}, {
    3.7414228826526103`*^9, 3.7414228939158297`*^9}, {3.741422928766291*^9, 
    3.7414229705743647`*^9}, {3.745497167283491*^9, 3.745497169647862*^9}, {
-   3.7454973776034174`*^9, 
-   3.745497410676593*^9}},ExpressionUUID->"5194c5bd-cb43-4acf-a68b-\
+   3.7454973776034174`*^9, 3.745497410676593*^9}, {3.745499883789426*^9, 
+   3.745499936675675*^9}, 
+   3.7454999906846485`*^9},ExpressionUUID->"5194c5bd-cb43-4acf-a68b-\
 88b28a395409"]
 },
 WindowSize->{1474, 821},
@@ -1353,9 +1367,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 16255, 412, 996, "Input",ExpressionUUID->"6b67ee65-80bc-4cc9-816a-3295dd6d44ab"],
-Cell[16816, 434, 34714, 638, 2373, "Input",ExpressionUUID->"d710c8a3-2b7e-4ea7-9add-82c169cfdf64"],
-Cell[51533, 1074, 353, 7, 35, "Input",ExpressionUUID->"b379edf7-c2cb-4f38-a7b3-903c07268399"],
-Cell[51889, 1083, 18193, 252, 108, "Input",ExpressionUUID->"5194c5bd-cb43-4acf-a68b-88b28a395409"]
+Cell[16816, 434, 35432, 653, 2439, "Input",ExpressionUUID->"d710c8a3-2b7e-4ea7-9add-82c169cfdf64"],
+Cell[52251, 1089, 353, 7, 35, "Input",ExpressionUUID->"b379edf7-c2cb-4f38-a7b3-903c07268399"],
+Cell[52607, 1098, 18243, 251, 108, "Input",ExpressionUUID->"5194c5bd-cb43-4acf-a68b-88b28a395409"]
 }
 ]
 *)
